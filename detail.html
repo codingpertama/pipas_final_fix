@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Detail Makanan</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .card-img-top {
+      height: 300px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+<div class="container py-4">
+  <button onclick="history.back()" class="btn btn-outline-success mb-3">← Kembali</button>
+  <div id="detail-container" class="row justify-content-center">
+    <!-- Detail akan muncul di sini -->
+  </div>
+</div>
+
+<script>
+  const dataMakanan = [
+    {
+      id: 1,
+      nama: "Restoran Laila",
+      gambar: "img/laila.webp",
+      rasa: "Pedas",
+      jam: "24 Jam",
+      jarak: "2.3 km",
+      rating: 4.8,
+      promo: "Diskon 25%",
+      menu: [
+        { id: 101, nama: "Nasi Sambal", harga: 15000 },
+        { id: 102, nama: "Ayam Sambal", harga: 20000 }
+      ]
+    },
+    {
+      id: 2,
+      nama: "Rest Area bang Ben",
+      gambar: "img/rest_area.webp",
+      rasa: "Asin",
+      jam: "24 Jam",
+      jarak: "1.0 km",
+      rating: 4.2,
+      promo: "Gratis Ongkir",
+      menu: [
+        { id: 201, nama: "Kerupuk Besar", harga: 10000 },
+        { id: 202, nama: "Kerupuk Mini", harga: 5000 }
+      ]
+    },
+    {
+      id: 3,
+      nama: "Toko Kue Surya",
+      gambar: "img/toko_kue_surya.jpg",  
+      rasa: "Manis",
+      jam: "06.00 - 17.00",
+      jarak: "1.5 km",
+      rating: 4.9,
+      promo: "Diskon 15%",
+      menu: [
+        { id: 301, nama: "Lapis Slice", harga: 12000 },
+        { id: 302, nama: "Lapis Whole", harga: 60000 }
+      ]
+    },
+    {
+      id: 4,
+      nama: "Asinan Ma'yu",
+      gambar: "img/asinan_ma'yu.webp",
+      rasa: "Asam",
+      jam: "09.00 - 21.00",
+      jarak: "0.8 km",
+      rating: 4.6,
+      promo: "Promo Cashback",
+      menu: [
+        { id: 401, nama: "Asinan Campur", harga: 15000 },
+        { id: 402, nama: "Asinan Sayur", harga: 13000 }
+      ]
+    },
+    {
+      id: 5,
+      nama: "D'Besto",
+      gambar: "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/cf5bb3fe-7321-4e98-9463-15203ff7b2b2_brand-image_1711619981293.jpg?auto=format",
+      rasa: "Asin",
+      jam: "24 Jam",
+      jarak: "3.0 km",
+      rating: 4.5,
+      promo: "Diskon 20%",
+      menu: [
+        { id: 902, nama: "Ayam Pedas", harga: 25000 },
+        { id: 1001, nama: "Ayam Kriuk", harga: 5000 },
+        { id: 1002, nama: "Ayam Mozarella", harga: 30000 }
+      ]
+    },
+    {
+      id: 6,
+      nama: "KFC Tugu",
+      gambar: "https://upload.wikimedia.org/wikipedia/id/b/bf/KFC_logo.svg",
+      rasa: "Gurih",
+      jam: "07.00 - 19.00",
+      jarak: "1.2 km",
+      rating: 4.7,
+      promo: "Beli 1 Gratis 1",
+      menu: [
+        { id: 1202, nama: "Cream Soup", harga: 5000 },
+        { id: 1301, nama: "Spagetti", harga: 25000 },
+        { id: 1302, nama: "Paket Hemat 1", harga: 170000 }
+      ]
+    },
+    {
+      id: 7,
+      nama: "Lotus",
+      gambar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV7FADrWaTvGvJ8fWhD8ZeWHkNd7eOCoE4YA&s",
+      rasa: "Asin",
+      jam: "10.00 - 22.00",
+      jarak: "2.5 km",
+      rating: 4.3,
+      promo: "Diskon 10%",
+      menu: [
+        { id: 1101, nama: "Topokki Lotus", harga: 30000 },
+        { id: 1102, nama: "Ayam Geprek", harga: 20000 },
+        { id: 1201, nama: "Odeng Lotus", harga: 25000 }
+      ]
+    }
+  ];
+
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get('id'));
+  const resto = dataMakanan.find(item => item.id === id);
+
+  const container = document.getElementById('detail-container');
+
+  if (resto) {
+    const menuHTML = resto.menu.map(menu =>
+      `<li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>${menu.nama}</strong><br>
+          <small class="text-muted">Rp${menu.harga.toLocaleString()}</small>
+        </div>
+        <a href="payment.html?menu_id=${menu.id}" class="btn btn-sm btn-success">Beli</a>
+      </li>`
+    ).join("");
+
+    container.innerHTML = `
+      <div class="col-md-8">
+        <div class="card shadow-sm border-0 mb-4">
+          <img src="${resto.gambar}" class="card-img-top" alt="${resto.nama}">
+          <div class="card-body">
+            <h3 class="card-title">${resto.nama}</h3>
+            <p class="text-muted">⭐ ${resto.rating} • ${resto.jarak}</p>
+            <p><strong>Rasa:</strong> ${resto.rasa}</p>
+            <p><strong>Jam Buka:</strong> ${resto.jam}</p>
+            <p><strong>Promo:</strong> ${resto.promo}</p>
+            <p class="mt-3">Silakan pilih menu favoritmu di bawah ini.</p>
+          </div>
+        </div>
+
+        <h5 class="mb-3">Menu Tersedia</h5>
+        <ul class="list-group mb-5">
+          ${menuHTML}
+        </ul>
+      </div>
+    `;
+  } else {
+    container.innerHTML = `<p class="text-center text-danger">Restoran tidak ditemukan!</p>`;
+  }
+</script>
+
+<!-- script BootStrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"
+      integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>

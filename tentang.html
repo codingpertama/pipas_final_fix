@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tentang Kami</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    footer {
+      background-color: #198754;
+    }
+    .hero {
+      background-image: url('img/bannerrev2.png');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 20px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+    .icon-box {
+      text-align: center;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease-in-out;
+    }
+    .icon-box:hover {
+      transform: translateY(-5px);
+    }
+    .icon-box i {
+      font-size: 32px;
+      color: #198754;
+      margin-bottom: 10px;
+    }
+
+    .team-photo {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #198754;
+    }
+
+    .team-card {
+      transition: all 0.3s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .role {
+      color: #198754;
+      font-weight: 600;
+    } 
+    :root {
+      --main-color: #00800f;
+      --main-color-light: #ffffff;
+    }
+
+    .footer {
+      background-color: var(--main-color);
+      color: var(--main-color-light);
+      padding: 40px 0 20px;
+      font-size: 14px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+      background-color: white;
+      border-radius: 30%;
+      height: 80px;
+      margin-right: 15px;
+    }
+
+    .footer-logo h1 {
+      font-size: 1.8rem;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .footer-about {
+      max-width: 300px;
+      line-height: 1.6;
+    }
+
+    .footer-title {
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links a {
+      color: #dfe6e9;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 36px;
+      margin-right: 8px;
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      background-color: var(--main-color-light);
+      transform: translateY(-3px);
+      color: var(--main-color);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .contact-info {
+      margin-top: 15px;
+    }
+
+    .contact-info p {
+      margin-bottom: 5px;
+    }
+
+    .newsletter {
+      margin-top: 20px;
+    }
+
+    .newsletter-input {
+      display: flex;
+      margin-top: 10px;
+    }
+
+    .newsletter-input input {
+      flex: 1;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .newsletter-input button {
+      color: white;
+      border: none;
+      padding: 0 15px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    } 
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
+      <div class="container-fluid">
+        <!-- Kiri: Logo + Hamburger -->
+        <div class="d-flex align-items-center">
+          <a href="index.html">
+          <img
+            src="img/revisiteks2.svg"
+            alt="logo PesenAja"
+            width="65"
+            height="65"
+          />
+          </a>
+          <button
+            class="navbar-toggler ms-2"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu"
+            aria-controls="navbarMenu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
+        <!-- Tengah: Menu + Tombol Login (masuk collapse) -->
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-3">
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="#">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="kategori.html">Kategori</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold active" href="#">Tentang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="kontak.html">Kontak</a>
+            </li>
+          </ul>
+          <a href="loginpage.html">
+          <button
+            class="btn btn_login rounded-pill px-4 me-2 mb-2 mb-lg-0"
+            type="submit">Masuk</button>
+            </a>
+        </div>
+
+        <!-- Kanan: Ikon Search --> 
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-magnifying-glass p-2 rounded-circle icon_search"></i>
+        </div>
+      </div>
+    </nav>
+
+  <!-- Hero Section -->
+  <section class="hero text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold" style="color: #198754;">Tentang Kami</h1>
+      <p class="lead text-black">Kami adalah platform pemesanan makanan yang mendukung UMKM daerah Cisarua.</p>
+    </div>
+  </section>
+
+  <!-- Visi Misi -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-6 mb-4">
+          <div class="icon-box bg-white">
+            <i class="fas fa-bullseye"></i>
+            <h5 class="fw-bold mt-2">Visi</h5>
+            <p>Menjadi platform makanan lokal terpercaya & terfavorit di Indonesia.</p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="icon-box bg-white">
+            <i class="fas fa-flag-checkered"></i>
+            <h5 class="fw-bold mt-2">Misi</h5>
+            <p>Menghubungkan pelanggan dengan resto terbaik, serta mendukung bisnis kuliner lokal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  
+  
+  
+  <!-- Kenapa Memilih Kami -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4 fw-bold">Kenapa Memilih Kami?</h2>
+      <div class="row text-center">
+        <div class="col-md-3 mb-4">
+          <div class="icon-box bg-white">
+            <i class="fas fa-utensils"></i>
+            <h6>Variasi makanan yang Beragam</h6>
+            <p>Ada pedas, manis, asin, dan lainnya!</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="icon-box bg-white">
+            <i class="fas fa-lock"></i>
+            <h6>Pembayaran Aman</h6>
+            <p>Tanpa ribet, langsung checkout.</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="icon-box bg-white">
+            <i class="fas fa-tags"></i>
+            <h6>Promo Menarik</h6>
+            <p>Diskon & cashback setiap hari.</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="icon-box bg-white">
+            <i class="fas fa-headset"></i>
+            <h6>Dukungan Cepat</h6>
+            <p>Tim kami siap bantu 24/7.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Tentang Tim -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-4">Siapa Kami?</h2>
+      <p class="text-center mx-auto" style="max-width: 800px;">
+        Kami adalah Siswa PPLG dari SMK Wikrama Bogor yang ingin menghadirkan solusi digital di dunia kuliner lokal. Dengan semangat belajar dan inovasi, kami bangun platform ini untuk bantu UMKM dan memudahkan masyarakat dalam menikmati makanan enak dari restoran lokal daerah Cisarua.
+      </p>
+    </div>
+  </section>
+  <!-- Tentang Kami -->
+  <section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Tentang Kami</h2>
+  
+    <!-- Baris 1: Teks Kiri - Gambar Kanan (TAPI mepet ke teks) -->
+  <div class="row align-items-center mb-5">
+  <div class="col-md-6 ps-md-2">
+    <h3 class="fw-bold">Rafa</h3>
+    <h5 class="text-success">Frontend Developer</h5>
+    <p>Saya Rafa, bertanggung jawab bikin beberapa fitur yang ada di Website PesenAja.</p>
+  </div>
+  <div class="col-md-6 d-flex align-items-center">
+    <div class="d-flex align-items-center">
+      <!-- Garis hijau -->
+      <div class="border-start border-5 border-success me-3" style="height: 100px;"></div>
+      <!-- Gambar MEPET ke kiri -->
+      <img src="img/rafa.png" alt="Rafa" class="img-fluid rounded shadow"
+           style="width: 250px; height: 300px; object-fit: cover;">
+    </div>
+  </div>
+  </div>
+  
+  
+    <!-- Baris 2: Teks Kanan - Gambar Kiri -->
+    <div class="row align-items-center mb-5 flex-md-row-reverse">
+      <div class="col-md-6 ps-md-2">
+        <h3 class="fw-bold">Nizar</h3>
+        <h5 class="text-success">Fullstack Developer</h5>
+        <p>Saya adalah nizar yang mengurus Tampilan sama seperti Rafa tapi saya juga mengurus tentang Login, fitur kirim email Dan beberapa fitur yang memiliki logic.</p>
+      </div>
+      <div class="col-md-6 d-flex justify-content-end align-items-center">
+        <div class="d-flex align-items-center">
+          <div class="border-start border-5 border-success me-3" style="height: 100px;"></div>
+          <img src="img/nizar.jpg" alt="Dini" class="img-fluid rounded shadow"
+               style="width: 250px; height: 300px; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  
+    <!-- Baris 3: Tasya -->
+    <div class="row align-items-center mb-5">
+  <div class="col-md-6 ps-md-2">
+    <h3 class="fw-bold">Radya</h3>
+    <h5 class="text-success">Penyusun Laporan dan PPT</h5>
+    <p>Aku Radya, tugas aku nyusun laporan kegiatan dan bantu bikin presentasi supaya semua ide tim bisa tersampaikan dengan jelas dan rapi.</p>
+  </div>
+  <div class="col-md-6 d-flex align-items-center">
+    <div class="d-flex align-items-center">
+      <!-- Garis hijau -->
+      <div class="border-start border-5 border-success me-3" style="height: 100px;"></div>
+      <!-- Gambar MEPET ke kiri -->
+      <img src="img/hai manis🤓.jpeg" alt="Rafa" class="img-fluid rounded shadow"
+           style="width: 250px; height: 300px; object-fit: cover;">
+    </div>
+  </div>
+  </div>
+  
+    <!-- Baris 4: Fajar -->
+    <div class="row align-items-center mb-5 flex-md-row-reverse">
+      <div class="col-md-6 ps-md-2">
+        <h3 class="fw-bold">Ray</h3>
+        <h5 class="text-success">Penyusun Laporan dan PPT</h5>
+        <p>Aku Ray, bantu nyusun laporan dan desain slide presentasi bareng Radya supaya lebih menarik dan gampang dipahami sama semua orang.</p>
+      </div>
+      <div class="col-md-6 d-flex justify-content-end align-items-center">
+        <div class="d-flex align-items-center">
+          <div class="border-start border-5 border-success me-3" style="height: 100px;"></div>
+          <img src="img/ray nazhan.jpg" alt="Fajar" class="img-fluid rounded shadow"
+               style="width: 250px; height: 300px; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container mx-auto">
+      <div class="row">
+        <!-- Logo & Deskripsi -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="footer-logo">
+            <img src="img/revisiteks2.svg" alt="PesenAja Logo" />
+            <h1>PesenAja</h1>
+          </div>
+          <div class="footer-about">
+            <p>Layanan pesan antar makanan lokal dari Cisarua. Kami hadir untuk bantu kamu nikmatin kuliner favorit tanpa ribet.</p>
+          </div>
+          <div class="social-icons mt-3">
+            <a href="https://www.facebook.com/profile.php?id=100076952160240"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/dyaazein/"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/6285779227089"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          
+          <div class="contact-info">
+            <p><i class="fas fa-phone-alt me-2"></i>0812-9281-0947</p>
+            <p><i class="fas fa-envelope me-2"></i>rafahafiziqbalsugarda@smkwikrama.sch.id</p>
+            <p><i class="fas fa-envelope me-2"></i>muhammadnizar@smkwikrama.sch.id</p>
+          </div>
+        </div>
+
+        <!-- Link Perusahaan -->
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5 class="footer-title">Perusahaan</h5>
+          <ul class="footer-links">
+            <li><a href="tentang.html">Tentang Kami</a></li>
+            <li><a href="#">Macam-Macam Kuliner</a></li>
+          </ul>
+          <h5 class="footer-title mt-4">Jam Operasional</h5>
+          <ul class="footer-links">
+            <li>24 Jam</li>
+            <i><li>Anda dapat memesan kapanpun dan dimanapun</li></i>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h5 class="footer-title">Kotak Saran</h5>
+          <p>Kami Selalu ingin memberikan yang terbaik kepada Pengguna Jika anda memiliki Kritik maupun saran </p>
+          <div class="newsletter">
+            <div class="newsletter-input">
+              <input type="email" placeholder="Masukkan Pesan Anda">
+              <button style="background-color: white; "><i class="fas fa-paper-plane text-success"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="mb-0">&copy; 2025 PesenAja - Layanan Pesan Antar Makanan Cisarua. Dibuat dengan <span style="color: #ff6b6b;">❤️</span> oleh tim kecil yang peduli rasa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- script BootStrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"
+      integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>
